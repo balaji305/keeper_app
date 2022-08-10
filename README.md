@@ -22,10 +22,10 @@
 - Download [Node Js and npm(Node package manager)](https://nodejs.org/en/) (npm gets installed by default on downloading Node)
 - Clone the repository by running the command:
 ```
-git clone https://github.com/Naman-codes2001/google-keep-clone.git
+git clone https://github.com/balaji305/keeper_app.git
 ```
 in your GitBash or terminal of VS Code.
-- Run the command `cd google-keep-clone/keep-clone`
+- Run the command `cd keeper_app`
 - Run `npm install` to install all dependencies for the project.
 - Run `npm start` to start the project on localhost:3000.
 - Now you are set to use this project locally.
