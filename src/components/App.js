@@ -33,15 +33,23 @@ function App() {
     deleteNote(id);
   }
 
+  function changeIsEdit() {
+    setIsEdit(false);
+    note.title = "";
+    note.content = "";
+  }
+
   function editFunc() {
     if (isEdit === true) {
       return (
         <div>
-          <CreateArea onAdd={addNote} note={note} />
+          <CreateArea onAdd={addNote} note={note} changeIsEdit={changeIsEdit} />
         </div>
       );
     } else {
-      return <CreateArea onAdd={addNote} note={note} />;
+      return (
+        <CreateArea onAdd={addNote} note={note} changeIsEdit={changeIsEdit} />
+      );
     }
   }
 

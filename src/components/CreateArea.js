@@ -24,6 +24,7 @@ function CreateArea(props) {
         title: "",
         content: "",
       });
+      props.changeIsEdit();
     }
     event.preventDefault();
   }
