@@ -6,8 +6,9 @@
 - It's functionality includes:
   - Adding a note
   - Deleting a note 
+  - Editing a note
   - Implemented using JSX
-  - Styled with CSS
+  - Styled with CSS & Material UI
 # Tech Stack
 - HTML
 - CSS
