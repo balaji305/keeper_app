@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddIcon from "@material-ui/icons/Add";
 import Fab from "@material-ui/core/Fab";
+import "./CreateArea.css";
 
 function CreateArea(props) {
-  const [note, setNote] = useState({
-    title: props.note.title,
-    content: props.note.content,
-  });
+  useEffect(() => {
+    setNote(props.note);
+  }, [props.note]);
+
+  const [note, setNote] = useState(props.note);
+
   function handleChange(event) {
     const { name, value } = event.target;
     setNote((prevNote) => {
@@ -18,21 +21,23 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
-    if (note.title.length !== 0 || note.content.length !== 0) {
-      props.onAdd(note);
-      setNote({
-        title: "",
-        content: "",
-      });
-      props.changeIsEdit();
+    if (note.title.length > 20) {
+      note.title = note.title.substring(0, 20) + "...";
     }
+    props.onAdd(note);
+    setNote({
+      title: "",
+      content: "",
+      type: "normal",
+    });
     event.preventDefault();
   }
 
   return (
-    <div>
-      <form className="create-note">
+    <div className="createArea">
+      <form className="createArea__form">
         <input
+          className="createArea__form__title"
           name="title"
           onChange={handleChange}
           value={note.title}
@@ -40,12 +45,14 @@ function CreateArea(props) {
         />
 
         <textarea
+          className="createArea__form__content"
           name="content"
           onChange={handleChange}
           value={note.content}
           placeholder="Take a note..."
           rows={3}
         />
+
         <Fab onClick={submitNote}>
           <AddIcon />
         </Fab>
